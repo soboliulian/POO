@@ -1,31 +1,239 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examen-poo-14.06.2021", "Examen-poo-14.06.2021.vcxproj", "{C9EA5D31-7949-4098-808C-F1208E185005}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Debug|x64.ActiveCfg = Debug|x64
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Debug|x64.Build.0 = Debug|x64
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Debug|x86.ActiveCfg = Debug|Win32
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Debug|x86.Build.0 = Debug|Win32
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Release|x64.ActiveCfg = Release|x64
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Release|x64.Build.0 = Release|x64
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Release|x86.ActiveCfg = Release|Win32
-		{C9EA5D31-7949-4098-808C-F1208E185005}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {91851100-1C3C-41D0-B042-5B1A5FFC1B83}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+using namespace std;
+class Pacient {
+public: 
+	string Nume;
+	string Prenume;
+	string Sex;
+	int Varsta;
+	string Nr_telefon;
+	string Gmail;
+	string Domiciliu;
+	string CNP;
+	
+
+	Pacient(string nume, string prenume, string sex, int varsta, string cnp, string domiciliu, string nr_telefon, string gmail)
+	{
+		Nume = nume;
+		Prenume = prenume;
+		Sex = sex;
+		Varsta = varsta;
+		Nr_telefon = nr_telefon;
+		Domiciliu = domiciliu;
+		CNP = cnp;
+		Gmail = gmail;
+	}
+	void date_pacient()
+	{
+		cout << "                         FISA PACIENT" << endl << endl;
+		cout << "Numele si prenumele:" << Nume << " " << Prenume << endl;
+		cout << "Varsta: " << Varsta << endl;
+		cout << "Sex: " << Sex << endl;
+		cout << "CNP: " << CNP << endl;
+		cout << "Domiciliat in: " << Domiciliu << endl;
+		cout << "Contact: " << endl;
+		cout << "    Numar de telefon: " << Nr_telefon << endl;
+		cout << "    gmail: " << Gmail << endl;
+
+	}
+
+	
+};
+
+class inainte_consult : public Pacient
+{
+public:
+	string Alteboli;
+	string Operatii;
+	string Simptome;
+
+	inainte_consult(string nume, string prenume, string sex, int varsta, string cnp, string domiciliu, string nr_telefon, string gmail, string alteboli, string operatii, string simptome)
+		:Pacient(nume, prenume, sex, varsta, cnp, domiciliu, nr_telefon, gmail)
+	{
+		Alteboli = alteboli;
+		Operatii = operatii;
+		Simptome = simptome;
+
+	}
+	void istoric_afectiuni()
+	{
+		if (Alteboli.empty())
+		{ }
+		else
+		{ 
+			cout << "Boli sau afectiuni din trecut: "<<Alteboli << endl;
+
+		}
+		cout << "Operatii:" << Operatii << endl;
+	}
+	void simptome_prezente()
+	{
+		cout << "Simptome prezente: " << Simptome << endl;
+	}
+
+};
+
+class dupa_consult : public inainte_consult
+{
+public:
+	string Afectiune;
+	string Faza;
+	string Internare;
+	int Cheltuieli_zi;
+	int Pret_consult;
+
+	dupa_consult(string nume, string prenume, string sex, int varsta, string cnp, string domiciliu, string nr_telefon, string gmail, string alteboli, string operatii, string simptome,string afectiune, string faza, string internare, int pret_consult, int cheltuieli_zi )
+		:inainte_consult(nume, prenume, sex, varsta, cnp, domiciliu, nr_telefon, gmail,alteboli,operatii,simptome)
+	{
+		Afectiune = afectiune;
+		Faza = faza;
+		Internare = internare;
+		Pret_consult = pret_consult;
+		Cheltuieli_zi = cheltuieli_zi;
+
+
+	}
+	void consult()
+	{
+		cout << endl;
+		cout << "DUPA CONSULTATIE: " << endl;
+		cout << "Persoana in cauza, in varsta de " << Varsta << " ani " << "sufera de " << Afectiune << " in faza " << Faza << endl;
+		cout << "Simptomele sunt aceleasi: " << Simptome << endl;
+	}
+	void Tratament_persoana()
+	{
+		if (Afectiune == "Migrena")
+		{
+			cout << "Tratament: " << " analgezice, triptanii, antiemeticele" << endl;
+			cout << "Cauze posibile: oboseala, somn deficitar, stres " << endl;
+		}
+		else
+			if (Afectiune == "Cancer")
+			{
+				cout << "Tratament: chimioterapie" << endl;
+				cout << "Cauze posibile: nu se cunosc" << endl;
+		    }
+			else if (Afectiune == "Acnee")
+			{
+				cout << "Tratament: spalare pe fata cu gel de curatare, crema dimineata si seara" << endl;
+				cout<<"Cauze posibile: Dereglare hormonala, poluarea aerului"<<endl;
+			}
+				
+	}
+	void Cheltuieli_internare();
+	void pret_consultatie()
+	{
+		cout << endl;
+		cout << "PRET CONSULT:" << Pret_consult << "lei";	
+		cout << endl;
+	}
+
+};
+void  dupa_consult::Cheltuieli_internare()
+{
+	if (Internare == "Da" || Internare == "DA" || Internare == "da")
+	{
+		cout << endl;
+		cout << "CHELTUIELI INTERNARE:" << endl;
+		cout << "Pacientul " << Nume << " " << Prenume << " a fost internat pe o perioada de " << Cheltuieli_zi << " zile si are de platit " << Cheltuieli_zi * 400 << " lei." << endl;
+	}
+
+}
+
+class Medic
+{
+public:
+	string Nume;
+	string Prenume;
+	string Nr_tel;
+
+	Medic(string nume, string prenume, string nr_tel)
+	{
+		Nume = nume;
+		Prenume = prenume;
+		Nr_tel = nr_tel;
+	}
+	void date_cotact_medic()
+	{
+		cout << endl;
+		cout << "Nume medic: DR. " << Nume << endl;
+		cout << "Prenume medic: " << Prenume << endl;
+		cout << "Nr. de telefon medic:" << Nr_tel << endl;
+	}
+
+};
+
+class Spital
+{
+public:
+	string Nume;
+	string Nr_tel;
+
+	Spital(string nume, string nr_tel)
+	{
+		Nume = nume;
+		Nr_tel = nr_tel;
+	}
+	void Contact_spital()
+	{
+		cout << endl;
+		cout <<"Spitalul: "<< Nume << endl;
+		cout << "Contact spital: " << Nr_tel << endl;
+	}
+	void Mesaj_final();
+};
+
+void Spital::Mesaj_final()
+{
+	cout << endl;
+	cout << "Spitalul " << Nume << " va ureaza o zi minunata!" << endl;
+	cout << "IMPREUNA CU GRIJA, TE FACEM BINE!" << endl;
+
+}
+int main()
+{
+	string nume_Pacient,prenume_Pacient;
+	cout << "Introduceti numele si prenumele pacientului:" << endl;
+	cout << "Numele:"; 
+	cin >> nume_Pacient;
+	cout << "Prenumele:"; cin >> prenume_Pacient;
+	if ((nume_Pacient=="Pal" && prenume_Pacient=="Alin" ) || ( nume_Pacient =="Alin" && prenume_Pacient == "Pal"))
+	{
+		inainte_consult Pacient = inainte_consult("Alin", "Pal", "M", 45, "607634974832", " jud. Bacau com. Cleja str. Soarelui nr.28 ", "076354239", "alinpal@gmail.com", "dureri de spate", "da", "durere de cap");
+		Pacient.date_pacient();
+		Pacient.istoric_afectiuni();
+		Pacient.simptome_prezente();
+		dupa_consult Pacient_d = dupa_consult("Alin", "Pal", "M", 45, "607634974832", " Bacau","076354239", "alinpal@gmail.com", "dureri de spate", "da", "durere de cap", "Migrena", "usoara","nu", 300, 0);
+		Pacient_d.consult();
+		Pacient_d.Tratament_persoana();
+		Pacient_d.pret_consultatie();
+		Pacient_d.Cheltuieli_internare();
+		Medic medic = Medic(" Gheorghies", "Petru", "0756656649");
+		medic.date_cotact_medic();
+		Spital spital = Spital("Sf. MONICA", "0756564734");
+		spital.Contact_spital();
+		spital.Mesaj_final();
+	}
+	else
+		if ((nume_Pacient == "Ionescu" && prenume_Pacient == "Carla") || (nume_Pacient == "Carla" && prenume_Pacient == "Ionescu"))
+		{
+			inainte_consult Pacient = inainte_consult("Carla", "Ionescu", "F", 36, "617624975837", " jud. Bacau str.Miorita nr.19 ", "076764280", "ionescucarla11@gmail.com", "nu", "da", "durere in stomac");
+			Pacient.date_pacient();
+			Pacient.istoric_afectiuni();
+			Pacient.simptome_prezente();
+			dupa_consult Pacient_d = dupa_consult("Carla", "Ionescu", "M", 36, "617624975837", " jud. Bacau str.Miorita nr.19", "076764280", "ionescucarla11@gmail.com", "nu", "nu", "durere in stomac", "Cancer", "de inceput", "da", 300, 5);
+			Pacient_d.consult();
+			Pacient_d.Tratament_persoana();
+			Pacient_d.pret_consultatie();
+			Pacient_d.Cheltuieli_internare();
+			Medic medic = Medic(" Lucaci", "Elena", "0737650649");
+			medic.date_cotact_medic();
+			Spital spital = Spital("Sf. MONICA", "0756564734");
+			spital.Contact_spital();
+			spital.Mesaj_final();
+		}
+		else
+		cout << "Pacientul nu este inregistrat la noi. ";
+	return 0;
+}
