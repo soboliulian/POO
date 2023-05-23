@@ -1,0 +1,18 @@
+﻿  BankAccount.cpp
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(3,1): error C2653: 'BankAccount': is not a class or namespace name
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,3): error C2039: 'accountHolder': is not a member of '`global namespace''
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,16): error C3646: 'accountHolder': unknown override specifier
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,16): error C2059: syntax error: '('
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,23): error C2059: syntax error: ')'
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(4,33): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(5,1): error C2059: syntax error: '{'
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(5,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(5,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(8,6): error C2653: 'BackAccount': is not a class or namespace name
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(10,13): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(12,6): error C2653: 'BackAccount': is not a class or namespace name
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(14,13): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\sobol\OneDrive\Desktop\POO\BigBank\BigBank\BankAccount.cpp(16,8): error C2653: 'BankAccount': is not a class or namespace name
